@@ -67,6 +67,8 @@ python audit_skill.py                   # 实证审计
 
 ## 语料库
 
+语料在**独立仓库**：**[Greatbeing/wengu-corpus](https://github.com/Greatbeing/wengu-corpus)**（403 文件，约 136MB）
+
 | 库 | 规模 | 来源 |
 |---|---|---|
 | 资治通鉴 | 294 卷，文白对照 | [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian) |
@@ -74,10 +76,22 @@ python audit_skill.py                   # 实证审计
 | 左传 | 12 公 255 年，仅【传】 | 同上 |
 
 解析为事件单元后聚段，共 **6,707 个事件单元**（通鉴 4,320 + 史记 2,151 + 左传 220），
-倒排索引 427 词。**语料随本仓库提交**（约 136MB，含上游 GPL 数据），clone 后
-`corpus/` 开箱即用。
+倒排索引 427 词。
 
-若上游数据拉取失败，可从零重建：
+### 安装
+
+```bash
+# 主仓（本仓库，约 257KB）
+npx skills add Greatbeing/wengu
+
+# 语料（136MB，单独拉取）
+git clone https://github.com/Greatbeing/wengu-corpus.git corpus
+```
+
+`scripts/corpus_path.py` 依次尝试：`$WENGU_CORPUS` → `../corpus/` → `./corpus/`
+→ `D:\HermesOutput\wengu\corpus`。所以把语料仓 clone 到主仓旁的 `corpus/` 即可被识别。
+
+### 从零重建（可选）
 
 ```bash
 cd corpus/zizhitongjian-main && git sparse-checkout init --cone \
@@ -128,8 +142,10 @@ python build_index.py      # *_units.jsonl → index.json
 ## 许可与归属
 
 - 本仓库自有代码（`scripts/`、`SKILL.md`、`references/`、`samples/`）：**MIT**
-- `corpus/zizhitongjian-main/` 来自 [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian)，**GPL-3.0**，其 LICENSE 原样保留于该目录
+- 语料仓库 [wengu-corpus](https://github.com/Greatbeing/wengu-corpus) 内含
+  [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian) 的 GPL-3.0 数据，
+  其 LICENSE 原样保留于 `corpus/zizhitongjian-main/LICENSE`
 - 《史记》《左传》语料来自公开古籍数据项目，《资治通鉴》原文为公有领域
 
-> **法律提示**：`corpus/zizhitongjian-main/` 下的 GPL-3.0 代码与自有代码的许可边界
-> 判定属法律问题，本仓库不提供法律意见。如对本仓库的代码做衍生分发，建议自行评估。
+> **法律提示**：GPL-3.0 数据与自有代码的许可边界判定属法律问题，本仓库不提供法律意见。
+> 如做商业分发，建议自行评估。
