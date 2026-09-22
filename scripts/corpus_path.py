@@ -6,7 +6,7 @@ corpus_path.py — 语料目录定位（让脚本脱离开发目录也能跑）
   1. 环境变量 WENGU_CORPUS
   2. 脚本上级目录的 corpus/（开发布局：<root>/scripts/ + <root>/corpus/）
   3. 脚本同级 corpus/
-  4. 默认安装位置 D:\\HermesOutput\\yinjian\\corpus
+  4. 默认安装位置 D:\\HermesOutput\\wengu\\corpus
   5. ~/AppData/Local/hermes/wengu-corpus
 
 判定标准：目录内存在 index.json（建好索引）或 zztj_units.jsonl（已解析语料）。
@@ -30,7 +30,7 @@ def candidates():
     out.append(os.path.join(HERE, "corpus"))
     out.append(DEFAULT_CORPUS)
     out.append(os.path.join(os.path.expanduser("~"), "AppData", "Local",
-                            "hermes", "guwen-juece-corpus"))
+                            "hermes", "wengu-corpus"))
     return out
 
 

@@ -4,11 +4,11 @@
 
 | 项 | 内容 |
 |---|---|
-| 来源 | 《资治通鉴》JY0284 库（294卷，文白对照）+《史记》daizhigev20 库（130篇） |
-| 解析 | `build_corpus.py` → `zztj_units.jsonl`(14,568段) + `shiji_units.jsonl`(6,396段) |
-| 聚段 | `retrieve.build_event_units()` 滑窗合并为 6,155 个**事件单元** |
-| 索引 | `build_index.py` → `corpus/index.json`（倒排索引，查询 0.5-0.8s） |
-| 位置 | `$GUWEN_CORPUS` 或 `D:\HermesOutput\wengu\corpus` |
+| 来源 | 《资治通鉴》JY0284 库（294卷，文白对照）＋《史记》daizhigev20 库（130篇）＋《左传》daizhigev20 儒藏/春秋（12公，简体，仅【传】） |
+| 解析 | `build_corpus.py` → `zztj_units.jsonl`(15,816段) + `shiji_units.jsonl`(6,396段) + `zuozhuan_units.jsonl`(436段) |
+| 聚段 | `retrieve.build_event_units()` 滑窗合并为 6,707 个**事件单元**（通鉴4,320 + 史记2,151 + 左传220） |
+| 索引 | `build_index.py` → `corpus/index.json`（倒排索引＋IDF，427 词，查询 0.5-0.8s） |
+| 位置 | `$WENGU_CORPUS` 或 `D:\HermesOutput\wengu\corpus` |
 
 **格式事实**（已逐行验证，改库时务必先复核）：
 - 通鉴 chapters/*.md 为**严格行级交替**：偶数行=古文，奇数行=白话
