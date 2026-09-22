@@ -21,3 +21,13 @@ desktop.ini
 .idea/
 .vscode/
 
+# 审计基线（本地临时）
+.baseline/
+
+# 上游仓库中本项目不使用、已不从本仓库分发的部分
+# （重新下载 JY0284/zizhitongjian 时保持排除，仅保留重建所需内容）
+/corpus/zizhitongjian-main/*
+!/corpus/zizhitongjian-main/chapters/
+!/corpus/zizhitongjian-main/LICENSE
+!/corpus/zizhitongjian-main/README.md
+

@@ -22,12 +22,36 @@ SOFTWARE.
 
 ---
 
-## 归属说明 / Attribution
+## 适用范围 / Scope
 
-本许可仅覆盖本仓库的自有代码（`scripts/`、`SKILL.md`、`references/`、`samples/`）。
+**本 MIT 许可仅覆盖本项目的自有创作：**
 
-`corpus/zizhitongjian-main/` 目录来自 https://github.com/JY0284/zizhitongjian
-（GNU General Public License v3.0），其原始 LICENSE 文件保留于该目录下，
-受 GPL-3.0 约束，**不受本 MIT 许可覆盖**。
+```
+scripts/      检索、推演、审计、测试脚本
+SKILL.md      技能定义
+references/   实现说明、场景定义、已知问题
+samples/      样例输出
+README.md     仓库说明
+```
 
-《史记》《左传》语料来源于公开古籍数据项目；《资治通鉴》原文为公有领域。
+**以下内容不受本 MIT 许可覆盖**，另按各自条款处理，详见
+[`corpus/LICENSES.md`](corpus/LICENSES.md) 与 [`NOTICE.md`](NOTICE.md)：
+
+```
+corpus/       语料、解析产物与索引
+```
+
+其中：
+
+- `corpus/zizhitongjian-main/` 来自
+  <https://github.com/JY0284/zizhitongjian>，为 **GPL-3.0**，
+  其原始 LICENSE 保留于该目录下；
+- **由上述 GPL 语料衍生的数据**（`zztj_units.jsonl`、`index.json`、
+  `patterns.json`、`data_quality.json`）同为 **GPL-3.0**——
+  本项目自有脚本不衍生自上游代码，故 `scripts/` 保持 MIT；
+- `shiji.txt`、`zuozhuan_raw.txt` 的底本《史记》《左传》为**公有领域**，
+  转录来源未声明许可，本项目不对该文本主张权利。
+
+《资治通鉴》原文为公有领域（1084 年成书），本项目不对其主张任何权利。
+
+> 本文件为项目方的许可整理，**不构成法律意见**。

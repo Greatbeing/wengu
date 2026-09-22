@@ -67,7 +67,8 @@ python audit_skill.py                   # 实证审计
 
 ## 语料库
 
-语料随本仓库提交，位于 `corpus/`（403 文件，约 136MB）。
+语料随本仓库提交，位于 `corpus/`（305 文件，约 83 MB）。
+仅保留重建所必需的原文与许可证，未随仓库分发上游用不到的代码与派生数据。
 
 | 库 | 规模 | 来源 |
 |---|---|---|
@@ -80,11 +81,11 @@ python audit_skill.py                   # 实证审计
 
 ### 从零重建（可选）
 
+重建所需的一切都已随仓库提交，无需联网：
+
 ```bash
-cd corpus/zizhitongjian-main && git sparse-checkout init --cone \
-  && git sparse-checkout set chapters data.json adapted_book.json
-cd ../../scripts
-python build_corpus.py     # 原始语料 → *_units.jsonl
+cd scripts
+python build_corpus.py     # 原文 → *_units.jsonl
 python build_index.py      # *_units.jsonl → index.json
 ```
 
@@ -128,11 +129,26 @@ python build_index.py      # *_units.jsonl → index.json
 
 ## 许可与归属
 
-- 本仓库自有代码（`scripts/`、`SKILL.md`、`references/`、`samples/`）：**MIT**
-- `corpus/zizhitongjian-main/` 来自 [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian)，**GPL-3.0**，其 LICENSE 原样保留于 `corpus/zizhitongjian-main/LICENSE`
-- 《史记》《左传》语料来自 [garychowcmu/daizhigev20](https://github.com/garychowcmu/daizhigev20)，**该仓库未声明许可**（`license: null`，`使用须知.md` 亦无授权条款）
-- 《资治通鉴》原文为公有领域（1084 年成书），GPL-3.0 仅覆盖 JY0284 的白话译文与结构化数据
+本仓库为**混合许可**项目，不适用单一许可。逐项说明见
+[`corpus/LICENSES.md`](corpus/LICENSES.md) 与 [`NOTICE.md`](NOTICE.md)。
 
-> **法律提示**：`daizhigev20` 未声明许可即默认保留全部权利，这是本仓库**明确的法律风险点**，
-> 风险等级高于 GPL-3.0 部分。GPL 与无许可部分的边界判定属法律问题，本仓库不提供法律意见。
-> 如做商业分发，建议自行评估或替换为明确许可的语料源。
+| 部分 | 许可 |
+|---|---|
+| 自有代码与文档（`scripts/`、`SKILL.md`、`references/`、`samples/`） | **MIT** |
+| 通鉴语料及其衍生数据（`zztj_units.jsonl`、`index.json`、`patterns.json`…） | **GPL-3.0** |
+| 《史记》《左传》文本 | 底本**公有领域**；转录来源未声明许可 |
+
+**上游与合规**
+
+- `corpus/zizhitongjian-main/` 来自 [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian)（**GPL-3.0**），
+  仅保留 `chapters/`、`LICENSE`、`README.md`；其 LICENSE 原样保留。
+- 本仓库对该数据有**修改**（解析、结构化、删减），修改声明见 `corpus/LICENSES.md` 第四节——
+  这是 GPL-3.0 第 5(a) 条的要求。
+- 由 GPL 语料衍生的数据按 **GPL-3.0** 分发；自有脚本不衍生自上游代码，故保持 MIT。
+- 《资治通鉴》原文为公有领域（1084 年成书），GPL-3.0 覆盖的是 JY0284 的白话译文与结构化数据。
+- 《史记》《左传》取自 [garychowcmu/daizhigev20](https://github.com/garychowcmu/daizhigev20)，
+  **该仓库未声明许可**（`license: null`）。本项目取用的是完整公有领域古籍的纯文本，
+  不对该文本主张权利。
+
+> **已知权利风险**：`daizhigev20` 未声明许可一事构成不确定性，这是本仓库**已知的风险点**。
+> 本项目不提供法律意见；如做商业分发，建议自行评估，或改用许可明确的底本重新构建。
