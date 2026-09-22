@@ -67,7 +67,7 @@ python audit_skill.py                   # 实证审计
 
 ## 语料库
 
-语料在**独立仓库**：**[Greatbeing/wengu-corpus](https://github.com/Greatbeing/wengu-corpus)**（403 文件，约 136MB）
+语料随本仓库提交，位于 `corpus/`（403 文件，约 136MB）。
 
 | 库 | 规模 | 来源 |
 |---|---|---|
@@ -77,19 +77,6 @@ python audit_skill.py                   # 实证审计
 
 解析为事件单元后聚段，共 **6,707 个事件单元**（通鉴 4,320 + 史记 2,151 + 左传 220），
 倒排索引 427 词。
-
-### 安装
-
-```bash
-# 主仓（本仓库，约 257KB）
-npx skills add Greatbeing/wengu
-
-# 语料（136MB，单独拉取）
-git clone https://github.com/Greatbeing/wengu-corpus.git corpus
-```
-
-`scripts/corpus_path.py` 依次尝试：`$WENGU_CORPUS` → `../corpus/` → `./corpus/`
-→ `D:\HermesOutput\wengu\corpus`。所以把语料仓 clone 到主仓旁的 `corpus/` 即可被识别。
 
 ### 从零重建（可选）
 
@@ -142,10 +129,10 @@ python build_index.py      # *_units.jsonl → index.json
 ## 许可与归属
 
 - 本仓库自有代码（`scripts/`、`SKILL.md`、`references/`、`samples/`）：**MIT**
-- 语料仓库 [wengu-corpus](https://github.com/Greatbeing/wengu-corpus) 内含
-  [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian) 的 GPL-3.0 数据，
-  其 LICENSE 原样保留于 `corpus/zizhitongjian-main/LICENSE`
-- 《史记》《左传》语料来自公开古籍数据项目，《资治通鉴》原文为公有领域
+- `corpus/zizhitongjian-main/` 来自 [JY0284/zizhitongjian](https://github.com/JY0284/zizhitongjian)，**GPL-3.0**，其 LICENSE 原样保留于 `corpus/zizhitongjian-main/LICENSE`
+- 《史记》《左传》语料来自 [garychowcmu/daizhigev20](https://github.com/garychowcmu/daizhigev20)，**该仓库未声明许可**（`license: null`，`使用须知.md` 亦无授权条款）
+- 《资治通鉴》原文为公有领域（1084 年成书），GPL-3.0 仅覆盖 JY0284 的白话译文与结构化数据
 
-> **法律提示**：GPL-3.0 数据与自有代码的许可边界判定属法律问题，本仓库不提供法律意见。
-> 如做商业分发，建议自行评估。
+> **法律提示**：`daizhigev20` 未声明许可即默认保留全部权利，这是本仓库**明确的法律风险点**，
+> 风险等级高于 GPL-3.0 部分。GPL 与无许可部分的边界判定属法律问题，本仓库不提供法律意见。
+> 如做商业分发，建议自行评估或替换为明确许可的语料源。
