@@ -25,7 +25,7 @@ description: Use when 借古籍推演人生抉择：检索《资治通鉴》《�
 cd D:/HermesOutput/wengu/scripts
 python tuiliyan.py "该不该向领导提出反对意见" --top 3 --md out.md
 python tuiliyan.py --list-scenes      # 列出 13 个决策内核
-python test_skill.py                  # 回归测试（26 项）
+python test_skill.py                  # 回归测试（21 项）
 ```
 
 ## 输出结构（必须遵守）
