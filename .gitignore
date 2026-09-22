@@ -22,3 +22,4 @@ desktop.ini
 .vscode/
 
 # 注意：corpus/ 语料有意提交（136MB），不加入 gitignore
+/corpus/
