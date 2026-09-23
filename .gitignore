@@ -27,6 +27,7 @@ desktop.ini
 # 网站验收产物（本地临时：截图与审计报告，不入库）
 web/shots/
 web/verify_site_report.json
+web/verify_live_report.json
 web/verify_out.txt
 
 # 上游仓库中本项目不使用、已不从本仓库分发的部分

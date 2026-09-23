@@ -226,6 +226,9 @@
     q = String(q || "").trim();
     if (!q && !opts.scene) { stateIdle(); return; }
 
+    // 索引还没到位：先记下来，载入完自动跑（避免用户白点一下没反应）
+    if (!S.meta) { S.queued = { q: q, opts: opts }; stateLoading("索引载入中"); return; }
+
     var my = ++S.seq;
     stateLoading(q || ("内核：" + opts.scene));
 
@@ -398,7 +401,15 @@
 
     if (!window.WenguEngine) { stateError(new Error("engine.js 未载入")); return; }
 
-    stateLoading("初始化");
+    // 先渲染、先绑定：索引有 300 多 KB，冷启动时不该让用户对着「正在初始化」干等。
+    // 静息态与输入交互立即可用；真去检索而数据未到时，run() 会排队，载入完自动执行。
+    bind();
+    stateIdle();
+    $("#demoMeta").textContent = "索引载入中…";
+
+    var p = new URLSearchParams(location.search);
+    var q0 = p.get("q"), s0 = p.get("s");
+    if (q0) { $("#askInput").value = q0; S.queued = { q: q0, opts: {} }; }
 
     getJson("data/manifest.json").then(function (m) {
       S.manifest = m;
@@ -406,14 +417,9 @@
     }).then(function (a) {
       S.scenes = a[0];
       S.meta = a[1];
-      bind();
-
-      // 地址栏带 ?q= 就直接跑，方便把结果发给别人
-      var p = new URLSearchParams(location.search);
-      var q = p.get("q"), sc = p.get("s");
-      if (q) { $("#askInput").value = q; run(q); }
-      else if (sc) run("", { scene: sc });
-      else stateIdle();
+      $("#demoMeta").textContent = "引擎与命令行逐位一致 · 51/51 对拍通过";
+      if (S.queued) { var k = S.queued; S.queued = null; run(k.q, k.opts); }
+      else if (s0) run("", { scene: s0 });
     }).catch(function (e) {
       stateError(e);
     });

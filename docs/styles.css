@@ -12,6 +12,9 @@
   --muted:      #64686f;   /* 原 #787c84 对纸底仅 3.6:1，未达 WCAG AA 的 4.5；此值实测 4.81:1 */
   --line:       #cbcbc4;
   --line-soft:  #dcdcd5;
+  /* 交互控件边界单独一档：WCAG 1.4.11 对「识别控件所需的视觉信息」要求 3:1，
+     --line 对纸底只有 1.40:1，仅够做分隔线，不够做输入框/按钮的边界。 */
+  --line-input: #7d8085;   /* 对输入框底色 #e6e6e1 实测 3.16:1，对纸底 3.41:1 */
   --accent:     #b93a2b;
   --accent-ink: #f4f2ee;
   --accent-wash: rgba(185, 58, 43, 0.07);
@@ -37,6 +40,7 @@
   --muted:      #83868d;
   --line:       #2e3136;
   --line-soft:  #25282d;
+  --line-input: #666970;   /* 对输入框底色 #1a1c20 实测 3.11:1 */
   --accent:     #d4503c;
   --accent-ink: #14151a;
   --accent-wash: rgba(212, 80, 60, 0.11);
@@ -150,7 +154,7 @@ p { margin: 0 0 1.1em; }
 
 .theme-btn {
   width: 34px; height: 34px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-input);
   border-radius: var(--radius);
   background: transparent;
   color: var(--ink-2);
@@ -200,7 +204,7 @@ p { margin: 0 0 1.1em; }
   display: flex;
   align-items: center;
   background: var(--paper-2);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-input);
   border-radius: var(--radius);
   transition: border-color .18s, box-shadow .18s;
 }
@@ -305,7 +309,7 @@ p { margin: 0 0 1.1em; }
 .examples { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .examples__label { font-size: 13.5px; color: var(--muted); margin-right: 2px; }
 .chip {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-input);
   background: transparent;
   color: var(--ink-2);
   font-family: var(--sans);
