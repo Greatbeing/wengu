@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>问古 · 把现代人生抉择，放进古籍的同类案例里</title>
+<meta name="description" content="输入你的处境，从《资治通鉴》《史记》《左传》6,707 个抉择事件中检索同类历史案例：原文逐字引用、拆解古人当时并列的选项、判定结果、区分显性与隐性代价。">
+<meta name="color-scheme" content="light dark">
+<!-- 内联 SVG 印章图标：省一次请求，也免掉 favicon 404 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23b93a2b'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='%23f4f2ee' font-family='serif'%3E%E9%97%AE%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+<script src="engine.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#"><span class="brand__seal">问</span>问古</a>
+    <div class="nav__links">
+      <a href="#demo">演示</a>
+      <a href="#how">输出</a>
+      <a href="#kern">内核</a>
+      <a href="#corpus" class="hide-sm">语料</a>
+      <a href="#check" class="hide-sm">实测</a>
+      <a href="#use" class="hide-sm">用法</a>
+      <button class="theme-btn" id="themeBtn" title="切换明暗" aria-label="切换明暗">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<header class="hero">
+  <div class="wrap hero__grid">
+    <div>
+      <h1>别问古人该怎么做，<br>先看古人<em>面对的是什么</em>。</h1>
+      <p class="hero__sub">
+        把你现在的处境说出来，这个库会从《资治通鉴》《史记》《左传》的
+        6,707 个抉择事件里，找出结构相同的案例：当时有哪几个方案并列、
+        当事人选了哪个、后来怎样、代价记在谁头上。
+      </p>
+
+      <form class="ask" id="askForm" autocomplete="off">
+        <label class="ask__field">
+          <span class="ask__icon" aria-hidden="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+              <circle cx="10.5" cy="10.5" r="6.2"></circle>
+              <path d="M15.2 15.2L21 21"></path>
+            </svg>
+          </span>
+          <input id="askInput" type="text" placeholder="例如：合伙人要我把股份让给他，我该不该让" aria-label="描述你的处境">
+        </label>
+        <button class="btn" type="submit">检索</button>
+      </form>
+      <p class="hero__hint">用日常说法就行，不必写成书面语。输入满 4 个字会自动开始检索。</p>
+    </div>
+
+    <figure class="mount" style="margin:0">
+      <img class="mount__tall" src="assets/hero-ink.jpg" alt="水墨远山，大面积留白，右下角朱文印" width="576" height="1024">
+      <img class="mount__wide" src="assets/hero-ink-2k.jpg" alt="水墨山川横幅" width="1024" height="576">
+      <figcaption class="mount__cap">
+        本库检索的是<strong>处境结构</strong>，不是身份。<br>
+        你不需要是王侯，只需要说清楚你在取舍什么。
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ── 演示 ── -->
+<section class="demo" id="demo">
+  <div class="wrap">
+    <div class="demo__head">
+      <h2>现场演示</h2>
+      <button class="chip" id="trToggle" style="padding:5px 12px;font-size:13px">白话：开</button>
+      <div class="demo__meta mono" id="demoMeta">引擎与命令行逐位一致 · 51/51 对拍通过</div>
+    </div>
+    <div class="examples" id="examples"></div>
+    <div class="panel" id="panel" style="margin-top:22px">
+      <div class="state"><div class="state__title">正在初始化</div><div>载入索引与内核定义。</div></div>
+      <div class="bar"><i></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 它给出什么 ── -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <h2>一次检索给出四样东西</h2>
+    <p class="sec__lead">
+      不是「古人这么做所以你也这么做」。是把一个抉择现场拆开，
+      让你看清当时真实存在的选项和代价。剩下的判断仍然归你。
+    </p>
+
+    <div class="split">
+      <div class="steps">
+        <div class="step">
+          <div>
+            <b>定位内核</b>
+            <p>把现代处境映射到 13 个决策内核之一，并给出这个内核真正在问的问题。命中词会一并列出，你可以自己核对它为什么这么判。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>并列选项</b>
+            <p>从原文里抽出当时<strong>真实存在</strong>的方案，而不是事后总结的正确路线。进退出处这一类，平均能抽出 4.13 个并列选项。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>判定结果</b>
+            <p>依原文可见的决断信号（「不听」「从之」「不许」）判定采纳与否。原文没写结果的，明确标注<strong>未载</strong>，不替古人补写。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <b>代价分层</b>
+            <p>显性代价附原句供你自行判断归属；隐性代价标出触发词（如「畔」暗示关系转为长期对立），词在原文里，判断是我的，分得开。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sample">
+        <div class="sample__label">真实检索结果 · 未编辑</div>
+        <div class="sample__q">
+          问：「我负债身处低谷，应该怎么办」<br>
+          <span style="color:var(--muted);font-size:13.5px">命中内核：困厄翻身 · 《资治通鉴》卷7（秦纪）[2-2]</span>
+        </div>
+        <p class="sample__txt">王问于将军李信曰：“吾欲取荆，于将军度用几何人而足？”李信曰：“不过用二十万。”王以问王翦，王翦曰：“非六十万人不可。”王曰：“王将军老矣，何怯也！”遂使李信、蒙恬将二十万人伐楚；王翦因谢病归频阳。</p>
+        <p class="sample__txt">楚人因随之，三日三夜不顿舍，大败李信，入两壁，杀七都尉；李信奔还。</p>
+        <p class="sample__txt">王闻之，大怒，自至频阳谢王翦曰：“寡人不用将军谋，李信果辱秦军。</p>
+        <div class="case__reasons" style="margin-top:14px">
+          两个方案并列 → 择其一 → 后果 → 回请旧人。<br>
+          这就是本库要找的「抉择现场」：不是一个人的独白，是几案并列后的取舍。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 内核 ── -->
+<section class="sec" id="kern">
+  <div class="wrap">
+    <h2>13 个决策内核</h2>
+    <p class="sec__lead">
+      每个内核对应一类反复出现的人类处境。检索时先判内核，再在内核内部比案例，
+      否则「像」就只是措辞上的像。
+    </p>
+    <div class="kern">
+      <div class="kern__item"><b>站队择主 <i>choose-side</i></b><div class="kern__q">该把未来押在谁身上？押注的胜负手是什么？</div></div>
+      <div class="kern__item"><b>进退出处 <i>stay-or-go</i></b><div class="kern__q">现在走是明智还是逃逸？窗口期是否已经打开？</div></div>
+      <div class="kern__item"><b>传承择嗣 <i>successor</i></b><div class="kern__q">接棒者的筛选标准里，哪一项才是不可让渡的底线？</div></div>
+      <div class="kern__item"><b>谏诤抉择 <i>remonstrate</i></b><div class="kern__q">说了可能掉脑袋，不说可能一起死。怎么说、说几次、说到哪一层？</div></div>
+      <div class="kern__item"><b>战和决断 <i>war-or-peace</i></b><div class="kern__q">这一仗是必须打的，还是可以绕开的？打与不打的真实赔率各是多少？</div></div>
+      <div class="kern__item"><b>用人察奸 <i>employ-person</i></b><div class="kern__q">此人的可信度，是已经验证过的，还是我一厢情愿的假设？</div></div>
+      <div class="kern__item"><b>利害权衡 <i>risk-return</i></b><div class="kern__q">算清的账里，有没有把不可逆的那一项算进去？</div></div>
+      <div class="kern__item"><b>信义取舍 <i>faith-or-interest</i></b><div class="kern__q">守信与逐利冲突时，我愿为之付出的最大代价是什么？</div></div>
+      <div class="kern__item"><b>时机取舍 <i>timing</i></b><div class="kern__q">现在出手，是抢到了势，还是抢到了别人的诱饵？</div></div>
+      <div class="kern__item"><b>忍辱负重 <i>endure</i></b><div class="kern__q">这一忍，是在为长远蓄势，还是在给自己找体面的台阶？</div></div>
+      <div class="kern__item"><b>家业处置 <i>family-wealth</i></b><div class="kern__q">我置下的这份家业，是在延续能力，还是在喂养依赖？</div></div>
+      <div class="kern__item"><b>道义绝境 <i>moral-trial</i></b><div class="kern__q">当所有选项都要付良心账时，我选哪一种付法？</div></div>
+      <div class="kern__item"><b>困厄翻身 <i>adversity-recovery</i></b><div class="kern__q">跌到底之后，第一件事该做什么？</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 语料 ── -->
+<section class="sec" id="corpus">
+  <div class="wrap">
+    <h2>语料</h2>
+    <p class="sec__lead">
+      三个来源，全部带白话对照。引用一律逐字取自语料，任何改写都不会出现在结果里。
+    </p>
+
+    <div class="corp">
+      <div class="corp__c">
+        <b>《资治通鉴》</b>
+        <div class="corp__n">4,320<small>事件单元</small></div>
+        <p>294 卷，周威烈王二十三年至后周世宗显德六年（前403－959），1,362 年。本库主体。</p>
+      </div>
+      <div class="corp__c">
+        <b>《史记》</b>
+        <div class="corp__n">2,167<small>事件单元</small></div>
+        <p>130 篇，本纪、世家、列传为主。补通鉴之前的上古与秦末汉初。</p>
+      </div>
+      <div class="corp__c">
+        <b>《左传》</b>
+        <div class="corp__n">220<small>事件单元</small></div>
+        <p>255 年，隐公至哀公，仅取传文。春秋列国的外交与内争现场最细。</p>
+      </div>
+    </div>
+
+    <figure class="band" style="margin:0 0 34px">
+      <img src="assets/hero-ink-2k.jpg" alt="水墨山川横构图" width="1024" height="576">
+    </figure>
+
+    <div class="metrics">
+      <div class="metric"><span class="metric__k">倒排索引词条</span><span class="metric__v mono">448</span></div>
+      <div class="metric"><span class="metric__k">单元带白话译文</span><span class="metric__v mono">100%</span></div>
+      <div class="metric"><span class="metric__k">无译文的单元</span><span class="metric__v mono">0</span></div>
+      <div class="metric"><span class="metric__k">构建产物（压缩后）</span><span class="metric__v mono">323.9 <small>KB</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 实测与边界 ── -->
+<section class="sec" id="check">
+  <div class="wrap">
+    <h2>实测数字与它测不出的东西</h2>
+    <p class="sec__lead">
+      下面每个数字都由脚本跑出，可复现。但它们衡量的是<strong>检索链路</strong>，
+      不是这个库对你有多少用。
+    </p>
+
+    <div class="honest">
+      <ul class="rules">
+        <li><b>引用保真 84/84（100%）</b>　抽样正文与源文件做指纹比对，逐字命中，没有一条是改写或生成。</li>
+        <li><b>场景识别 50/51（98.0%）</b>　对自拟的 51 条标注问句。这是自拟标注，不是独立人工验证，请按 98% 打折扣地看。</li>
+        <li><b>检索一致性 51/51（100%）</b>　首位案例的内核落在识别结果的前二之内。同一个问题两次跑，结果完全相同（已消除哈希顺序依赖）。</li>
+        <li><b>top-3 平均并列选项 4.13 个</b>　说明检索到的确实是「多方案现场」，而不是单方叙述。</li>
+        <li><b>浏览器端与命令行 51/51 完全一致</b>　网站上跑的是真引擎移植，逐字段对拍：案例、分数、质量分、出处全部相同。候选事件集也用的是同一份。</li>
+        <li><b>已知短板</b>　timing（81.6%）与 risk-return（81.5%）两个内核因泛词过多几乎不过滤候选，精确率全靠打分公式兜底。这条写在技能的 known-issues 里，没有藏。</li>
+      </ul>
+
+      <div class="vtext">
+        臣不才，所言如水投石。
+        <cite>《资治通鉴》卷187（唐纪）</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 用法 ── -->
+<section class="sec" id="use">
+  <div class="wrap">
+    <h2>怎么用</h2>
+    <p class="sec__lead">
+      网站是它的演示面。真正的用法是在你自己的 Agent 里调用，让它在对话中检索。
+    </p>
+
+    <div class="use">
+      <div>
+        <div class="code"><span class="c"># 按处境检索（CLI）</span>
+python tuiliyan.py "该不该离开现在的单位" --top 3
+
+<span class="c"># 未命中的说法可以换一种</span>
+<span class="k">或</span> 直接用内核指定
+python tuiliyan.py --scene remonstrate
+
+<span class="c"># 看全部内核</span>
+python tuiliyan.py --list-scenes</div>
+        <p style="font-size:14px;color:var(--muted)">
+          技能目录：<span class="mono">~/AppData/Local/hermes/skills/wengu/</span><br>
+          语料路径可用环境变量 <span class="mono">$WENGU_CORPUS</span> 覆盖。
+        </p>
+      </div>
+      <div>
+        <div class="steps">
+          <div class="step"><div>
+            <b>把结论当信息，不当答案</b>
+            <p>这些案例是判断的材料。它不知道你的行业、你的家庭、你手上真实的牌。</p>
+          </div></div>
+          <div class="step"><div>
+            <b>注意幸存者偏差</b>
+            <p>能写进史书的，是抉择者中的极少数。同样处境下沉默转身的多数，史书不载。</p>
+          </div></div>
+          <div class="step"><div>
+            <b>古今约束强度不同</b>
+            <p>古人的「去」常意味着失去一切庇护且不可逆，你的多数损失是可修复的。类比可用，等强度套用会失真。</p>
+          </div></div>
+          <div class="step"><div>
+            <b>真正该问的那句</b>
+            <p>这些古人面对的约束里，哪一条与我最像，哪一条已经彻底消失。已消失的那条，往往正是可以放手一搏的地方。</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap" style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+    <span><strong style="font-family:var(--serif);font-size:15px">问古</strong> · 把现代人生抉择放进古籍的同类案例里</span>
+    <span class="foot__r">
+      <a href="https://github.com/Greatbeing/wengu">GitHub</a> ·
+      自有代码 MIT，通鉴语料及其衍生数据 GPL-3.0 ·
+      本站不收集任何数据
+    </span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

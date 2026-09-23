@@ -35,6 +35,22 @@
 | `corpus/patterns.json` | 统计自上述 units | **GPL-3.0**（含 GPL 成分） |
 | `corpus/data_quality.json` | 统计自上述 units | **GPL-3.0**（含 GPL 成分） |
 
+### 网站构建产物（`docs/data/`）
+
+配套网站需要把语料送进浏览器，因此 `docs/data/` 是**同一批 GPL 衍生物的再加工**，
+许可随之：
+
+| 路径 | 由何生成 | 许可 |
+|---|---|---|
+| `docs/data/meta.json.gz` | 逐事件抽取的特征向量与候选下标表，构建自 `index.json` | **GPL-3.0** |
+| `docs/data/scenes.json` | 13 个内核定义（自有，MIT）+ IDF 表（衍生） | **GPL-3.0**（含 GPL 成分） |
+| `docs/data/shards/*.json.gz` | 切分自 `index.json` 的正文与白话 | **GPL-3.0** |
+
+网站前端代码（`docs/engine.js`、`docs/app.js`、`docs/index.html`、`docs/styles.css`）
+与水墨配图（`docs/assets/`）为本项目自有创作，**MIT**。
+其中 `engine.js` 是 `scripts/retrieve.py` 的逐句移植 —— 移植的是自有脚本，
+不是上游仓库的代码，故不受 GPL 约束。
+
 ---
 
 ## 四、GPL-3.0 合规声明（第 5(a) 条）

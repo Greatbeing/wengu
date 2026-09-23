@@ -9,7 +9,7 @@
   --paper-3:    #dcdcd6;
   --ink:        #16171a;
   --ink-2:      #3d4046;
-  --muted:      #787c84;
+  --muted:      #64686f;   /* 原 #787c84 对纸底仅 3.6:1，未达 WCAG AA 的 4.5；此值实测 4.81:1 */
   --line:       #cbcbc4;
   --line-soft:  #dcdcd5;
   --accent:     #b93a2b;
@@ -85,6 +85,18 @@ p { margin: 0 0 1.1em; }
   padding: 0 32px;
 }
 
+/* grid 子项默认 min-width:auto，会被 white-space:pre 这类内容顶破轨道 ——
+   窄屏上表现为整页横向溢出。显式归零，让内部的 overflow-x:auto 真正生效。 */
+.hero__grid > *,
+.split > *,
+.use > *,
+.honest > *,
+.kern > *,
+.corp > *,
+.metrics > * { min-width: 0; }
+
+.code { max-width: 100%; }
+
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 
 /* ── 导航 ── */
@@ -154,8 +166,8 @@ p { margin: 0 0 1.1em; }
 .hero { padding: 72px 0 96px; }
 .hero__grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 72px;
+  grid-template-columns: 1fr 340px;
+  gap: 60px;
   align-items: start;
 }
 .hero h1 {
@@ -254,6 +266,10 @@ p { margin: 0 0 1.1em; }
   height: auto;
   border-radius: 1px;
 }
+/* 竖幅只在宽屏用。窄屏换成横幅，否则 hero 会高过一屏。
+   注意选择器必须写成 .mount img.mount__xx —— 单写 .mount__xx 的优先级
+   低于上面的 .mount img，会被 display:block 压掉，结果是两张图同时显示。 */
+.mount img.mount__wide { display: none; }
 .mount__cap {
   margin-top: 12px;
   font-size: 12.5px;
@@ -557,9 +573,11 @@ p { margin: 0 0 1.1em; }
 .kern__q { font-size: 14px; color: var(--ink-2); line-height: 1.75; }
 
 /* ── 语料 ── */
+/* 三库按体量加权，不做三张等宽卡片 —— 等宽三等分是最典型的 AI 排版味，
+   而这里本来就该体现「通鉴是主体、左传是补充」的真实比例。 */
 .corp {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.5fr 1.1fr 0.9fr;
   gap: 28px;
   margin-bottom: 46px;
 }
@@ -723,6 +741,12 @@ p { margin: 0 0 1.1em; }
   .metric { grid-template-columns: 1fr auto; }
   .case__text { font-size: 16px; line-height: 1.95; }
   .mount { padding: 10px; }
+  /* 窄屏换横幅：竖幅会把首屏撑到 1300px 以上 */
+  .mount img.mount__tall { display: none; }
+  .mount img.mount__wide { display: block; max-height: 150px; object-fit: cover;
+                           object-position: center 62%; }
+  .mount__cap { display: none; }          /* 图注在窄屏属冗余 */
+  .hero__grid { gap: 28px; }
   .foot { flex-direction: column; align-items: flex-start; gap: 10px; }
   .foot__r { margin-left: 0; text-align: left; }
 }

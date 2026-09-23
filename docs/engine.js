@@ -64,6 +64,20 @@
     return neg ? -out : out;
   }
 
+  /* 升序下标表解码：差值 varint → base64（编码侧见 build_web_index.py 的 enc_indices）
+   * 让浏览器端与 Python 用**同一份候选集**，不只是同一套打分。 */
+  function decIndices(b64) {
+    var bin = atob(b64);
+    var out = [], prev = 0, i = 0;
+    while (i < bin.length) {
+      var d = 0, shift = 0, b;
+      do { b = bin.charCodeAt(i++); d |= (b & 0x7f) << shift; shift += 7; } while (b & 0x80);
+      prev += d;
+      out.push(prev);
+    }
+    return out;
+  }
+
   var SCORE_EVIDENCE_CAP = 6.5;
   var SCORE_ADVICE_CAP = 3.0;
   var SCORE_OPTION_CAP = 3.0;
@@ -261,7 +275,11 @@
     for (var c = 0; c < meta.cqVocab.length; c++) cqIdfArr.push(meta.cqIdf[meta.cqVocab[c]] || 1.0);
 
     var target = [];
-    if (matched.length) {
+    if (opts.scene) {
+      /* 显式指定内核：与 CLI 的 --scene 一致，权重固定 1.0（等权，
+       * 见 retrieve.py: target = [(sid, 1.0) ...]）。 */
+      if (byId[opts.scene]) target.push({ id: opts.scene, w: 1.0 });
+    } else if (matched.length) {
       var head = matched.slice(0, 3);
       var total = 0;
       for (var d = 0; d < head.length; d++) total += head[d].score;
@@ -271,6 +289,15 @@
       }
     }
 
+    // 候选表（Python 只扫倒排索引命中的事件，这里用同一份）
+    var scanLists = {};
+    if (meta.cand) {
+      for (var key in meta.cand) {
+        if (meta.cand.hasOwnProperty(key)) scanLists[key] = decIndices(meta.cand[key]);
+      }
+    }
+    var allIdx = null;
+
     var results = [];
     for (var t = 0; t < target.length; t++) {
       var sid = target[t].id, w = target[t].w;
@@ -278,7 +305,18 @@
       if (!scene) continue;
       var sset = sceneClsSet[sid];
 
-      for (var idx = 0; idx < meta.events.length; idx++) {
+      var scan = scanLists[sid];
+      if (!scan) {
+        if (!allIdx) {
+          allIdx = [];
+          for (var z = 0; z < meta.events.length; z++) allIdx.push(z);
+        }
+        scan = allIdx;
+      }
+
+      for (var xi = 0; xi < scan.length; xi++) {
+        var idx = scan[xi];
+        if (idx >= meta.events.length) continue;
         var r = scoreEvent(idx, scene, meta, sset, clsIdfArr, evdIdfArr, cqIdfArr);
         if (r.sc < minScore) continue;
         var final = r.sc * (0.55 + 1.45 * w);

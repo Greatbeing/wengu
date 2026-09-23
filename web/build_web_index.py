@@ -21,6 +21,7 @@ gzip 后仍有 5～11 MB，不适合首屏加载。因此拆成两层：
     python build_web_index.py [--out ../../docs/data] [--shards 24]
 """
 import argparse
+import base64
 import json
 import os
 import sys
@@ -45,6 +46,26 @@ def load_index():
     p = os.path.join(R.CORPUS, "index.json")
     with open(p, encoding="utf-8") as f:
         return json.load(f)
+
+
+def enc_indices(arr):
+    """升序下标 → 差值 varint → base64。
+
+    Python 侧只扫「该内核古典词命中的候选事件」（倒排索引），并不扫全库。
+    浏览器端若扫全库，候选集就成了两边唯一的**结构性差异**：被排除的事件
+    在 JS 里可能进位，而 Python 里不会。对拍虽然通过，那只是经验结果。
+    把候选表原样编进来，才是结构一致（顺带查询也更快）。
+    """
+    out = bytearray()
+    prev = 0
+    for i in arr:
+        d = i - prev
+        prev = i
+        while d >= 0x80:
+            out.append((d & 0x7f) | 0x80)
+            d >>= 7
+        out.append(d)
+    return base64.b64encode(bytes(out)).decode("ascii")
 
 
 def build(outdir, n_shards):
@@ -108,10 +129,12 @@ def build(outdir, n_shards):
 
     # ── 预计算并列选项数（用真 deduce，避免移植）──
     nprop = {}
+    cand_out = {}
     scene_map = {s["id"]: s for s in SCENES}
     total = 0
     for si, s in enumerate(SCENES):
         cands = R.candidate_indices(s, idx)
+        cand_out[s["id"]] = enc_indices(cands)
         m = {}
         for i in cands:
             if i >= len(events):
@@ -124,7 +147,8 @@ def build(outdir, n_shards):
                 continue
         nprop[s["id"]] = m
         total += len(m)
-        print("      场景 %-16s 候选 %5d" % (s["id"], len(m)))
+        print("      场景 %-16s 候选 %5d  (编码 %6.1f KB)"
+              % (s["id"], len(m), len(cand_out[s["id"]]) / 1024))
     print("[4/5] 并列选项预计算完成（%d 对）" % total)
 
     # ── 输出 ──
@@ -169,6 +193,7 @@ def build(outdir, n_shards):
         "cqIdf": {w: idf.get(w, 1.0) for w in cq_vocab},
         "clsIdf": {w: idf.get(w, 1.0) for w in cls_vocab},
         "nprop": nprop,
+        "cand": cand_out,
         "events": rows,
     }
     meta_p = os.path.join(outdir, "meta.json.gz")

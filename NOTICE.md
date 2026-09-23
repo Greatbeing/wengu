@@ -27,9 +27,17 @@
 | `corpus/zuozhuan_raw.txt` | 同上 | 见第三节 |
 | `corpus/shiji_units.jsonl` | 同上 | 衍生自上述文本 |
 | `corpus/zuozhuan_units.jsonl` | 同上 | 衍生自上述文本 |
+| `docs/index.html`、`docs/app.js`、`docs/engine.js`、`docs/styles.css` | **MIT** | 网站前端（自有创作） |
+| `docs/assets/` | **MIT** | 水墨配图（本项目生成） |
+| `docs/data/meta.json.gz` | **GPL-3.0** | 语料衍生物（特征向量与候选表） |
+| `docs/data/scenes.json` | **GPL-3.0**（含 GPL 成分） | 内核定义（MIT）+ IDF 表（衍生） |
+| `docs/data/shards/*.json.gz` | **GPL-3.0** | 语料衍生物（正文与白话分片） |
 
 **为何 `scripts/` 能保持 MIT**：本项目脚本为独立创作，未复制上游代码；
 它们只是*读取* GPL 数据并*产出*衍生数据。衍生数据受 GPL-3.0 约束，脚本本身不受约束。
+
+网站前端同理：`docs/engine.js` 移植的是本项目的 `scripts/retrieve.py`（自有代码），
+不是上游仓库的代码，故保持 MIT；而它读取的 `docs/data/` 是语料衍生物，仍受 GPL-3.0 约束。
 
 ---
 
