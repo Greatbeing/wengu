@@ -1,0 +1,1 @@
+{"n":6707,"shards":64,"perShard":105,"meta":"data/meta.json.gz","scenes":"data/scenes.json","shardPattern":"data/shards/shard-%03d.json.gz"}

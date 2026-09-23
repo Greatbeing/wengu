@@ -1,0 +1,2708 @@
+{
+ "我在考虑要不要离开现在的公司跟朋友去创业": {
+  "matched": [
+   {
+    "id": "stay-or-go",
+    "score": 2.0
+   },
+   {
+    "id": "choose-side",
+    "score": 1.0
+   },
+   {
+    "id": "risk-return",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷34（汉纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[1-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.02,
+    "quality": 16.63,
+    "cite": "《资治通鉴》卷203（唐纪）[3-3]",
+    "raw_sc": 16.625842000000002,
+    "nprop": 4
+   }
+  ]
+ },
+ "该不该向领导提出反对意见": {
+  "matched": [
+   {
+    "id": "remonstrate",
+    "score": 1.0
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "remonstrate",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷97（晋纪）[9-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[22-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "remonstrate",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷210（唐纪）[20-20]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "remonstrate",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷260（唐纪）[61-64]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷270（后梁纪）[23-25]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "公司该交给职业经理人还是我儿子": {
+  "matched": [
+   {
+    "id": "successor",
+    "score": 2.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷12（汉纪）[7-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷81（晋纪）[4-5]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷90（晋纪）[10-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷93（晋纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "要不要跟竞争对手打价格战": {
+  "matched": [
+   {
+    "id": "war-or-peace",
+    "score": 4.35
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "war-or-peace",
+    "score": 37.95,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[1-1]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 37.95,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷109（晋纪）[1-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 37.95,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷212（唐纪）[11-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 37.95,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 37.95,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷271（后梁纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "该不该忍下这次委屈": {
+  "matched": [
+   {
+    "id": "endure",
+    "score": 4.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷274（后唐纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 39.41,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷81（晋纪）[7-10]",
+    "raw_sc": 16.700480000000002,
+    "nprop": 4
+   },
+   {
+    "scene": "endure",
+    "score": 39.07,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷192（唐纪）[4-5]",
+    "raw_sc": 16.552530000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "合伙人要我把股份让给他，我该不该让": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 3.0
+   },
+   {
+    "id": "employ-person",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 32.85,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 32.85,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 32.85,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "choose-side",
+    "score": 32.27,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷184（隋纪）[22-25]",
+    "raw_sc": 16.699655000000003,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 31.52,
+    "quality": 16.31,
+    "cite": "《资治通鉴》卷207（唐纪）[8-9]",
+    "raw_sc": 16.312880000000003,
+    "nprop": 5
+   }
+  ]
+ },
+ "这笔投资值不值得押上全部积蓄": {
+  "matched": [
+   {
+    "id": "risk-return",
+    "score": 3.0
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "risk-return",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷2（周纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "risk-return",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷6（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷44（汉纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷51（汉纪）[6-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "答应了朋友的事现在做不了，要不要反悔": {
+  "matched": [
+   {
+    "id": "faith-or-interest",
+    "score": 1.0
+   },
+   {
+    "id": "timing",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷69（魏纪）[13-14]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷213（唐纪）[17-18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷224（唐纪）[14-15]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "现在出手还是再等等": {
+  "matched": [
+   {
+    "id": "timing",
+    "score": 2.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷110（晋纪）[5-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[25-26]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "要不要把所有财产都留给儿子": {
+  "matched": [
+   {
+    "id": "family-wealth",
+    "score": 4.0
+   },
+   {
+    "id": "successor",
+    "score": 1.0
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "family-wealth",
+    "score": 32.78,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 32.78,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "family-wealth",
+    "score": 32.78,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷83（晋纪）[18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 32.78,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷105（晋纪）[13-16]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 32.78,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "为了保住工作让我做违心的事": {
+  "matched": [
+   {
+    "id": "moral-trial",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "moral-trial",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷90（晋纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 7
+   },
+   {
+    "scene": "moral-trial",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《左传》僖公（元年～二年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "moral-trial",
+    "score": 39.07,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷96（晋纪）[12-12]",
+    "raw_sc": 16.552695000000003,
+    "nprop": 2
+   },
+   {
+    "scene": "moral-trial",
+    "score": 38.64,
+    "quality": 16.38,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 16.375430000000005,
+    "nprop": 2
+   },
+   {
+    "scene": "moral-trial",
+    "score": 38.35,
+    "quality": 16.25,
+    "cite": "《资治通鉴》卷58（汉纪）[2-3]",
+    "raw_sc": 16.247830000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "这个下属我该不该继续用": {
+  "matched": [
+   {
+    "id": "employ-person",
+    "score": 2.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷122（宋纪）[8-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷129（宋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷137（齐纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷148（梁纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷179（隋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "我负债身处低谷，应该怎么办": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 6.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ },
+ "欠了一屁股债怎么翻身": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 3.0
+   },
+   {
+    "id": "faith-or-interest",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 37.08,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ },
+ "不想干了，可是辞职又怕后悔": {
+  "matched": [
+   {
+    "id": "stay-or-go",
+    "score": 4.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "stay-or-go",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷34（汉纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[1-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 39.23,
+    "quality": 16.63,
+    "cite": "《资治通鉴》卷203（唐纪）[3-3]",
+    "raw_sc": 16.625842000000002,
+    "nprop": 4
+   }
+  ]
+ },
+ "老东家留我，新公司给的更多，跟谁": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 0.7
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "choose-side",
+    "score": 25.12,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷184（隋纪）[22-25]",
+    "raw_sc": 16.699655000000003,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 24.54,
+    "quality": 16.31,
+    "cite": "《资治通鉴》卷207（唐纪）[8-9]",
+    "raw_sc": 16.312880000000003,
+    "nprop": 5
+   }
+  ]
+ },
+ "我是不是该退出了，感觉没意义了": {
+  "matched": [
+   {
+    "id": "stay-or-go",
+    "score": 3.0
+   },
+   {
+    "id": "faith-or-interest",
+    "score": 0.4
+   }
+  ],
+  "results": [
+   {
+    "scene": "stay-or-go",
+    "score": 36.7,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷34（汉纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 36.7,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[1-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 36.7,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 36.7,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 35.9,
+    "quality": 16.63,
+    "cite": "《资治通鉴》卷203（唐纪）[3-3]",
+    "raw_sc": 16.625842000000002,
+    "nprop": 4
+   }
+  ]
+ },
+ "公司要交出去，交给谁我才放心": {
+  "matched": [
+   {
+    "id": "successor",
+    "score": 1.0
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "successor",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷12（汉纪）[7-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷81（晋纪）[4-5]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷90（晋纪）[10-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷93（晋纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "手下这个人反水了，我早该看出来": {
+  "matched": [
+   {
+    "id": "employ-person",
+    "score": 2.0
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "employ-person",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷122（宋纪）[8-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   },
+   {
+    "scene": "employ-person",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷129（宋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷137（齐纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "employ-person",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷148（梁纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷179（隋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "借出去的钱要不要催，撕破脸值得吗": {
+  "matched": [
+   {
+    "id": "war-or-peace",
+    "score": 3.0
+   },
+   {
+    "id": "faith-or-interest",
+    "score": 1.0
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.7
+   }
+  ],
+  "results": [
+   {
+    "scene": "war-or-peace",
+    "score": 29.59,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[1-1]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 29.59,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷109（晋纪）[1-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 29.59,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷212（唐纪）[11-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 29.59,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 29.59,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷271（后梁纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "眼看有机会，但我还没准备好，上不上": {
+  "matched": [
+   {
+    "id": "timing",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷110（晋纪）[5-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[25-26]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "亲戚开口借钱，这钱借不借": {
+  "matched": [
+   {
+    "id": "family-wealth",
+    "score": 3.7
+   }
+  ],
+  "results": [
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷83（晋纪）[18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷105（晋纪）[13-16]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "老板让我做假账，我该怎么办": {
+  "matched": [
+   {
+    "id": "moral-trial",
+    "score": 2.0
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "moral-trial",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷90（晋纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 7
+   },
+   {
+    "scene": "moral-trial",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《左传》僖公（元年～二年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "moral-trial",
+    "score": 34.85,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷96（晋纪）[12-12]",
+    "raw_sc": 16.552695000000003,
+    "nprop": 2
+   },
+   {
+    "scene": "moral-trial",
+    "score": 34.47,
+    "quality": 16.38,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 16.375430000000005,
+    "nprop": 2
+   },
+   {
+    "scene": "moral-trial",
+    "score": 34.21,
+    "quality": 16.25,
+    "cite": "《资治通鉴》卷58（汉纪）[2-3]",
+    "raw_sc": 16.247830000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "要不要跟发小一起开店": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "choose-side",
+    "score": 39.41,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷184（隋纪）[22-25]",
+    "raw_sc": 16.699655000000003,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 38.5,
+    "quality": 16.31,
+    "cite": "《资治通鉴》卷207（唐纪）[8-9]",
+    "raw_sc": 16.312880000000003,
+    "nprop": 5
+   }
+  ]
+ },
+ "项目亏了，是止损还是继续投": {
+  "matched": [
+   {
+    "id": "risk-return",
+    "score": 4.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "risk-return",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷2（周纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "risk-return",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷6（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷44（汉纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷51（汉纪）[6-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "被合伙人坑了，要不要告他": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 3.0
+   },
+   {
+    "id": "war-or-peace",
+    "score": 1.0
+   },
+   {
+    "id": "employ-person",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 31.09,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 31.09,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 31.09,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "choose-side",
+    "score": 30.54,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷184（隋纪）[22-25]",
+    "raw_sc": 16.699655000000003,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 29.83,
+    "quality": 16.31,
+    "cite": "《资治通鉴》卷207（唐纪）[8-9]",
+    "raw_sc": 16.312880000000003,
+    "nprop": 5
+   }
+  ]
+ },
+ "我在犹豫要不要接这个offer": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 2.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "choose-side",
+    "score": 39.41,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷184（隋纪）[22-25]",
+    "raw_sc": 16.699655000000003,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 38.5,
+    "quality": 16.31,
+    "cite": "《资治通鉴》卷207（唐纪）[8-9]",
+    "raw_sc": 16.312880000000003,
+    "nprop": 5
+   }
+  ]
+ },
+ "这套房子现在卖还是等两年": {
+  "matched": [
+   {
+    "id": "family-wealth",
+    "score": 3.0
+   },
+   {
+    "id": "timing",
+    "score": 0.7
+   }
+  ],
+  "results": [
+   {
+    "scene": "family-wealth",
+    "score": 34.62,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 34.62,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "family-wealth",
+    "score": 34.62,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷83（晋纪）[18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 34.62,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷105（晋纪）[13-16]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 34.62,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "家里的事总是我一个人扛，受够了": {
+  "matched": [
+   {
+    "id": "family-wealth",
+    "score": 1.0
+   },
+   {
+    "id": "endure",
+    "score": 0.7
+   }
+  ],
+  "results": [
+   {
+    "scene": "family-wealth",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "family-wealth",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷83（晋纪）[18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷105（晋纪）[13-16]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "上面的人听不进话，我还说吗": {
+  "matched": [
+   {
+    "id": "remonstrate",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷97（晋纪）[9-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[22-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷210（唐纪）[20-20]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷260（唐纪）[61-64]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷270（后梁纪）[23-25]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "合伙人要分家，怎么分才不吃亏": {
+  "matched": [
+   {
+    "id": "choose-side",
+    "score": 3.0
+   },
+   {
+    "id": "family-wealth",
+    "score": 3.0
+   },
+   {
+    "id": "risk-return",
+    "score": 0.4
+   }
+  ],
+  "results": [
+   {
+    "scene": "choose-side",
+    "score": 24.66,
+    "quality": 17.0,
+    "cite": "《史记》卷5 秦本纪",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "choose-side",
+    "score": 24.66,
+    "quality": 17.0,
+    "cite": "《史记》卷32 齐太公世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "choose-side",
+    "score": 24.66,
+    "quality": 17.0,
+    "cite": "《左传》僖公（十年～十一年）",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "family-wealth",
+    "score": 24.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 24.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "团队里有人混日子，开还是留": {
+  "matched": [
+   {
+    "id": "employ-person",
+    "score": 1.0
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "employ-person",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷122（宋纪）[8-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   },
+   {
+    "scene": "employ-person",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷129（宋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷137（齐纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "employ-person",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷148（梁纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 28.14,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷179（隋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "被朋友骗了钱，追还是不追": {
+  "matched": [
+   {
+    "id": "faith-or-interest",
+    "score": 1.0
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷69（魏纪）[13-14]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷213（唐纪）[17-18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷224（唐纪）[14-15]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "该低头还是硬扛，我咽不下这口气": {
+  "matched": [
+   {
+    "id": "endure",
+    "score": 1.7
+   },
+   {
+    "id": "war-or-peace",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "endure",
+    "score": 35.15,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷274（后唐纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 35.15,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "endure",
+    "score": 35.15,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 34.54,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷81（晋纪）[7-10]",
+    "raw_sc": 16.700480000000002,
+    "nprop": 4
+   },
+   {
+    "scene": "endure",
+    "score": 34.23,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷192（唐纪）[4-5]",
+    "raw_sc": 16.552530000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "这笔钱投进去可能翻倍也可能归零": {
+  "matched": [
+   {
+    "id": "risk-return",
+    "score": 2.0
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.4
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "risk-return",
+    "score": 32.19,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷2（周纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "risk-return",
+    "score": 32.19,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷6（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 32.19,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷44（汉纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 32.19,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "risk-return",
+    "score": 32.19,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷51（汉纪）[6-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "孩子接不了家业，我该怎么办": {
+  "matched": [
+   {
+    "id": "successor",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷12（汉纪）[7-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷81（晋纪）[4-5]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷90（晋纪）[10-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷93（晋纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "successor",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "要不要举报公司的问题": {
+  "matched": [
+   {
+    "id": "remonstrate",
+    "score": 3.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷97（晋纪）[9-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[22-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷210（唐纪）[20-20]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷260（唐纪）[61-64]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "remonstrate",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷270（后梁纪）[23-25]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "对方咄咄逼人，我该不该让步": {
+  "matched": [
+   {
+    "id": "war-or-peace",
+    "score": 3.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "war-or-peace",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[1-1]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷109（晋纪）[1-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷212（唐纪）[11-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷271（后梁纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "熬了三年没起色，还要不要熬": {
+  "matched": [
+   {
+    "id": "endure",
+    "score": 0.4
+   }
+  ],
+  "results": [
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷274（后唐纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 39.41,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷81（晋纪）[7-10]",
+    "raw_sc": 16.700480000000002,
+    "nprop": 4
+   },
+   {
+    "scene": "endure",
+    "score": 39.07,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷192（唐纪）[4-5]",
+    "raw_sc": 16.552530000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "一切重来，从哪里开始": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ },
+ "被裁员了，下一步怎么走": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 2.0
+   },
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 35.79,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ },
+ "攒的钱全赔进去了，怎么爬起来": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 3.0
+   },
+   {
+    "id": "risk-return",
+    "score": 0.4
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 34.3,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 34.3,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 34.3,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 34.3,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 34.3,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ },
+ "当初该走的没走，现在后悔": {
+  "matched": [
+   {
+    "id": "stay-or-go",
+    "score": 0.35
+   },
+   {
+    "id": "timing",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷34（汉纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[1-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "timing",
+    "score": 25.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "领导不信任我了，还有必要留吗": {
+  "matched": [
+   {
+    "id": "stay-or-go",
+    "score": 2.0
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   },
+   {
+    "id": "faith-or-interest",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "stay-or-go",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷34（汉纪）[2-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[1-3]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "stay-or-go",
+    "score": 31.86,
+    "quality": 16.63,
+    "cite": "《资治通鉴》卷203（唐纪）[3-3]",
+    "raw_sc": 16.625842000000002,
+    "nprop": 4
+   }
+  ]
+ },
+ "要不要把老员工换成新人": {
+  "matched": [
+   {
+    "id": "employ-person",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷122（宋纪）[8-9]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷129（宋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷137（齐纪）[5-6]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷148（梁纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "employ-person",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷179（隋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "答应别人的事我不想做了": {
+  "matched": [
+   {
+    "id": "faith-or-interest",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "faith-or-interest",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷50（汉纪）[11-12]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷69（魏纪）[13-14]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷213（唐纪）[17-18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "faith-or-interest",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷224（唐纪）[14-15]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   }
+  ]
+ },
+ "怕错过这次机会，又怕被套住": {
+  "matched": [
+   {
+    "id": "timing",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[4-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷101（晋纪）[8-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷110（晋纪）[5-8]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷195（唐纪）[25-26]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "timing",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "家里矛盾要不要摊开说": {
+  "matched": [
+   {
+    "id": "family-wealth",
+    "score": 2.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷40（汉纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷62（汉纪）[8-10]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷83（晋纪）[18]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷105（晋纪）[13-16]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "family-wealth",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷208（唐纪）[6-7]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   }
+  ]
+ },
+ "要不要为了大局低头认错": {
+  "matched": [
+   {
+    "id": "endure",
+    "score": 1.0
+   }
+  ],
+  "results": [
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷274（后唐纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷279（后唐纪）[32-34]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "endure",
+    "score": 40.12,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "endure",
+    "score": 39.41,
+    "quality": 16.7,
+    "cite": "《资治通鉴》卷81（晋纪）[7-10]",
+    "raw_sc": 16.700480000000002,
+    "nprop": 4
+   },
+   {
+    "scene": "endure",
+    "score": 39.07,
+    "quality": 16.55,
+    "cite": "《资治通鉴》卷192（唐纪）[4-5]",
+    "raw_sc": 16.552530000000004,
+    "nprop": 6
+   }
+  ]
+ },
+ "该不该跟这个团队死磕到底": {
+  "matched": [
+   {
+    "id": "war-or-peace",
+    "score": 1.0
+   },
+   {
+    "id": "choose-side",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "war-or-peace",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[1-1]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷109（晋纪）[1-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷212（唐纪）[11-11]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷219（唐纪）[40-43]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   },
+   {
+    "scene": "war-or-peace",
+    "score": 32.58,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷271（后梁纪）[3-4]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 2
+   }
+  ]
+ },
+ "手上有笔钱，是还债还是再搏一次": {
+  "matched": [
+   {
+    "id": "adversity-recovery",
+    "score": 1.0
+   },
+   {
+    "id": "risk-return",
+    "score": 0.4
+   },
+   {
+    "id": "family-wealth",
+    "score": 0.35
+   }
+  ],
+  "results": [
+   {
+    "scene": "adversity-recovery",
+    "score": 27.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷7（秦纪）[2-2]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 8
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 27.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷187（唐纪）[80-83]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 27.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷241（唐纪）[20-21]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 4
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 27.66,
+    "quality": 17.0,
+    "cite": "《资治通鉴》卷242（唐纪）[21-23]",
+    "raw_sc": 17.000000000000004,
+    "nprop": 3
+   },
+   {
+    "scene": "adversity-recovery",
+    "score": 27.66,
+    "quality": 17.0,
+    "cite": "《史记》卷41 越王句践世家",
+    "raw_sc": 17.000000000000004,
+    "nprop": 5
+   }
+  ]
+ }
+}

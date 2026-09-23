@@ -284,14 +284,16 @@ def score_unit(unit, scene, keywords, idf=None):
         return idf.get(w, 1.0)
 
     # 1) 古典信号词：按稀有度加权，稀有词才是强信号
+    #    次级键取词本身：idf 相同的词若顺序不定，浮点求和次序就不定，
+    #    末位差异会在舍入边界上翻出 0.01 的分差（实测出现过一次）。
     hits = sorted({w for w in scene["classical"] if w in text},
-                  key=lambda w: -w_of(w))
+                  key=lambda w: (-w_of(w), w))
     if hits:
         sc += min(6.5, sum(w_of(w) for w in hits) * 0.55)
         reasons.append("古典信号(按稀有度):" + "/".join(hits[:6]))
 
     # 2) 抉择证据词：判定「这是决策现场」而非背景叙述（同样按稀有度）
-    ev = sorted({w for w in EVIDENCE if w in text}, key=lambda w: -w_of(w))
+    ev = sorted({w for w in EVIDENCE if w in text}, key=lambda w: (-w_of(w), w))
     if ev:
         sc += min(3.0, sum(w_of(w) for w in ev) * 0.32)
         reasons.append("抉择证据:" + "/".join(ev[:5]))
@@ -319,7 +321,7 @@ def score_unit(unit, scene, keywords, idf=None):
         sc += 0.3
 
     # 6) 后果/代价信息（隐性代价分析需要）—— 按稀有度加权
-    cq = sorted({w for w in CONSEQUENCE if w in text}, key=lambda w: -w_of(w))
+    cq = sorted({w for w in CONSEQUENCE if w in text}, key=lambda w: (-w_of(w), w))
     if cq:
         sc += min(1.8, sum(w_of(w) for w in cq) * 0.22)
         reasons.append("后果信息:%d项" % len(cq))
@@ -371,13 +373,21 @@ def load_index():
 
 
 def candidate_indices(scene, index):
-    """该场景古典词命中的候选事件下标（并集）"""
+    """该场景古典词命中的候选事件下标（并集）
+
+    返回**升序列表**而非 set —— 这是一处真实缺陷的修复：
+    原先返回 set，遍历顺序取决于哈希桶内部布局，虽对 int 而言稳定，
+    但属不可解释的实现细节。它决定了同分案例的先后，也就是说
+    「同一个问题两次跑出不同案例」的风险藏在这里。
+    改为升序（即语料顺序：通鉴卷序 → 史记 → 左传）后，
+    同分排序有明确语义，且与浏览器端移植实现天然一致。
+    """
     inv = index["inverted"]
     s = set()
     for w in scene["classical"]:
         for i in inv.get(w, ()):
             s.add(i)
-    return s
+    return sorted(s)
 
 
 def retrieve(user_text, keywords=None, scene_ids=None, top=5, min_score=1.0,
