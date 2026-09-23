@@ -91,10 +91,11 @@
   function panel(html) { $("#panel").innerHTML = html; }
 
   function stateLoading(q) {
+    var title = q ? '\u6B63\u5728\u68C0\u7D22\u300C' + esc(q) + '\u300D' : '\u6B63\u5728\u8F7D\u5165\u2026';
     panel(
       '<div class="state">' +
-        '<div class="state__title">正在检索「' + esc(q) + '」</div>' +
-        '<div>在《资治通鉴》《史记》《左传》共 6,707 个抉择事件单元中比对。</div>' +
+        '<div class="state__title">' + title + '</div>' +
+        (q ? '<div>在《资治通鉴》《史记》《左传》共 6,707 个抉择事件单元中比对。</div>' : '') +
       '</div>' +
       '<div class="bar"><i></i></div>');
   }
@@ -114,7 +115,7 @@
     panel(
       '<div class="state">' +
         '<div class="state__title">「' + esc(q) + '」没有匹配到决策内核</div>' +
-        '<div>多半是说法太笼统。这个库认的是**处境**，不是身份或愿望：' +
+        '<div>多半是说法太笼统。这个库认的是<b>处境</b>，不是身份或愿望：' +
           '把「我该怎么办」换成「要不要 A，还是 B」这种带取舍的说法，命中率高得多。</div>' +
         '<div style="margin-top:18px">' +
           '<button class="linkbtn" data-act="kernels">按决策内核浏览全部 13 个内核</button>' +
@@ -227,7 +228,7 @@
     if (!q && !opts.scene) { stateIdle(); return; }
 
     // 索引还没到位：先记下来，载入完自动跑（避免用户白点一下没反应）
-    if (!S.meta) { S.queued = { q: q, opts: opts }; stateLoading("索引载入中"); return; }
+    if (!S.meta) { S.queued = { q: q, opts: opts }; stateLoading(null); return; }
 
     var my = ++S.seq;
     stateLoading(q || ("内核：" + opts.scene));
@@ -386,6 +387,18 @@
   }
 
   /* ── 启动 ── */
+  var LOAD_TIMEOUT_MS = 60000;    // 60 秒无响应视为失败
+  var LOAD_RETRY_MAX = 2;         // 最多重试 2 次
+
+  function withTimeout(ms, p, label) {
+    return Promise.race([
+      p,
+      new Promise(function (_, rej) {
+        setTimeout(function () { rej(new Error(label + "（" + (ms / 1000) + " 秒）")); }, ms);
+      })
+    ]);
+  }
+
   function boot() {
     // 主题与白话偏好
     try {
@@ -401,8 +414,6 @@
 
     if (!window.WenguEngine) { stateError(new Error("engine.js 未载入")); return; }
 
-    // 先渲染、先绑定：索引有 300 多 KB，冷启动时不该让用户对着「正在初始化」干等。
-    // 静息态与输入交互立即可用；真去检索而数据未到时，run() 会排队，载入完自动执行。
     bind();
     stateIdle();
     $("#demoMeta").textContent = "索引载入中…";
@@ -411,18 +422,39 @@
     var q0 = p.get("q"), s0 = p.get("s");
     if (q0) { $("#askInput").value = q0; S.queued = { q: q0, opts: {} }; }
 
-    getJson("data/manifest.json").then(function (m) {
-      S.manifest = m;
-      return Promise.all([getJson(m.scenes), getGz(m.meta)]);
-    }).then(function (a) {
-      S.scenes = a[0];
-      S.meta = a[1];
-      $("#demoMeta").textContent = "引擎与命令行逐位一致 · 51/51 对拍通过";
-      if (S.queued) { var k = S.queued; S.queued = null; run(k.q, k.opts); }
-      else if (s0) run("", { scene: s0 });
-    }).catch(function (e) {
-      stateError(e);
-    });
+    // 加载循环：带超时 + 手动重试（应对 CDN 冷启动波动）
+    function loadAll(attempt) {
+      var metaLabel = "第 " + (attempt + 1) + " 次载入索引";
+      $("#demoMeta").textContent = metaLabel;
+      return withTimeout(LOAD_TIMEOUT_MS,
+        getJson("data/manifest.json").then(function (m) {
+          S.manifest = m;
+          return Promise.all([
+            withTimeout(25000, getJson(m.scenes), "载入 scenes.json 超时"),
+            withTimeout(45000, getGz(m.meta),    "载入 meta.json.gz 超时（约 324KB）"),
+          ]);
+        }), metaLabel + " 超时")
+        .then(function (a) {
+          S.scenes = a[0];
+          S.meta = a[1];
+          $("#demoMeta").textContent = "引擎与命令行逐位一致 · 51/51 对拍通过";
+          if (S.queued) { var k = S.queued; S.queued = null; run(k.q, k.opts); }
+          else if (s0) run("", { scene: s0 });
+        })
+        .catch(function (e) {
+          if (attempt < LOAD_RETRY_MAX) {
+            // 间隔 2s 后重试
+            return new Promise(function (res) {
+              setTimeout(function () {
+                $("#demoMeta").textContent = metaLabel + " 失败，" + (LOAD_RETRY_MAX - attempt) + " 次重试…";
+                res(loadAll(attempt + 1));
+              }, 2000);
+            });
+          }
+          stateError(new Error(metaLabel + " 失败（已重试 " + LOAD_RETRY_MAX + " 次）：" + (e && e.message ? e.message : e)));
+        });
+    }
+    loadAll(0);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
