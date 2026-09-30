@@ -12,11 +12,14 @@
   H 控制台 / 失败请求
 """
 import json
+import sys
 import time
 
 from playwright.sync_api import sync_playwright
 
-LIVE = "https://greatbeing.github.io/wengu/"
+# 默认验线上；也可传本地地址快速自测本脚本：
+#   python audit_site_live.py http://127.0.0.1:8777/docs/
+LIVE = sys.argv[1] if len(sys.argv) > 1 else "https://greatbeing.github.io/wengu/"
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 QUERY = "要不要辞职换个方向"
 
@@ -56,8 +59,15 @@ def main():
             return len(REQ)
 
         def since(n):
+            """返回 (请求数, 分片字节, 其他字节)。
+
+            分片是按需拉取、会随查询变化的量；其余（manifest/scenes/meta）是缓存里的
+            固定量。混在一起会把每次内核浏览的成本算高一倍以上。
+            """
             sub = REQ[n:]
-            return len(sub), sum(x["bytes"] for x in sub)
+            sb = sum(x["bytes"] for x in sub if "shards/" in x["url"])
+            ob = sum(x["bytes"] for x in sub if "shards/" not in x["url"])
+            return len(sub), sb, ob
 
         out = {}
 
@@ -66,8 +76,8 @@ def main():
         pg.wait_for_selector("#examples .chip", timeout=120000)
         pg.wait_for_function("() => document.querySelector('#demoMeta').textContent.indexOf('51/51') >= 0",
                              timeout=180000)
-        n, b = since(0)
-        out["A_首屏"] = {"请求数": n, "下载KB": round(b / 1024, 1),
+        n, b, ob = since(0)
+        out["A_首屏"] = {"请求数": n, "分片KB": round(b / 1024, 1), "其他KB": round(ob / 1024, 1),
                          "静息态": pg.eval_on_selector("#panel", "e=>e.textContent.replace(/\\s+/g,' ').trim().slice(0,60)"),
                          "示例数": pg.eval_on_selector_all("#examples .chip", "e=>e.length")}
 
@@ -77,42 +87,41 @@ def main():
         pg.keyboard.press("Enter")
         pg.wait_for_selector(".case", timeout=120000)
         pg.wait_for_timeout(800)
-        n, b = since(m0)
+        n, b, ob = since(m0)
         out["B_检索"] = {
             "案例数": pg.eval_on_selector_all(".case", "e=>e.length"),
             "面板": pg.eval_on_selector("#demoMeta", "e=>e.textContent.trim()"),
-            "请求数": n, "下载KB": round(b / 1024, 1),
+            "请求数": n, "按需分片KB": round(b / 1024, 1), "缓存量KB": round(ob / 1024, 1),
             "分片": sorted({x["url"] for x in REQ[m0:] if "shards/" in x["url"]}),
             "白话可见": pg.eval_on_selector_all(".case__tran", "e=>e.filter(x=>x.offsetParent!==null).length"),
             "URL": pg.url.split("?")[-1][:60],
         }
 
-        # ── C 按内核浏览（逐个点，记录每次的下载量）──
-        pg.eval_on_selector('[data-act="kernels"]', "e=>e.click()") if pg.query_selector('[data-act="kernels"]') else None
-        pg.wait_for_timeout(500)
-        kb_btns = pg.query_selector_all("[data-scene]")
-        out["C_内核"] = {"按钮数": len(kb_btns), "逐个": []}
-        for i, btn in enumerate(kb_btns):
-            sid = btn.get_attribute("data-scene")
+        # ── C 按内核浏览 ──
+        # 内核入口只在静息态/无命中态出现（结果态没有）。所以先造一个无命中态把 13 个内核 id 取出来，
+        # 再逐个走 ?s=<内核> 深链接——顺带把「深链接按内核」这条路径也一起测了。
+        pg.fill("#askInput", "zzzzqqqq")
+        pg.keyboard.press("Enter")
+        pg.wait_for_timeout(2200)
+        pg.eval_on_selector('[data-act="kernels"]', "e=>e.click()")
+        pg.wait_for_timeout(600)
+        sids = [b.get_attribute("data-scene") for b in pg.query_selector_all("[data-scene]")]
+        out["C_内核"] = {"内核数": len(sids), "逐个": []}
+        for sid in sids:
             m0 = mark()
             try:
-                btn.click()
+                pg.goto(LIVE + "?s=" + sid, wait_until="domcontentloaded", timeout=120000)
                 pg.wait_for_selector(".case", timeout=90000)
                 pg.wait_for_timeout(400)
-                n, b = since(m0)
+                n, b, ob = since(m0)
                 out["C_内核"]["逐个"].append({
                     "scene": sid,
                     "案例": pg.eval_on_selector_all(".case", "e=>e.length"),
-                    "新请求": n, "新增KB": round(b / 1024, 1),
+                    "新请求": n, "按需分片KB": round(b / 1024, 1),
                     "新分片": len({x["url"] for x in REQ[m0:] if "shards/" in x["url"]}),
                 })
             except Exception as e:
-                out["C_内核"]["逐个"].append({"scene": sid, "错误": str(e)[:60]})
-            # 回到内核列表
-            if pg.query_selector('[data-act="kernels"]'):
-                pg.eval_on_selector('[data-act="kernels"]', "e=>e.click()")
-                pg.wait_for_timeout(300)
-            kb_btns = pg.query_selector_all("[data-scene]")
+                out["C_内核"]["逐个"].append({"scene": sid, "错误": str(e)[:70]})
 
         # ── D 无命中 ──
         m0 = mark()

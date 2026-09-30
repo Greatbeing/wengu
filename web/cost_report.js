@@ -48,8 +48,15 @@ function cost(perShard, label) {
   for (const q of QUERIES) {
     const out = E.retrieve(q, scenes, meta, { top: 5, minScore: 1.0 });
     const sh = [...new Set(out.results.map(r => Math.floor(r.i / perShard)))];
-    // 按该粒度估算单片字节（总字节守恒）
-    const bytes = sh.length * (totalBytes / (meta.n / perShard));
+    let bytes;
+    if (perShard === man.perShard) {
+      // 与当前产物同粒度：直接用真实文件尺寸，最准
+      bytes = sh.reduce((a, s) => a + (shardSize[s] || 0), 0);
+    } else {
+      // 其他粒度只能按均值估算，但**这会低估**：分片尺寸方差很大，
+      // 而高分结果的正文偏长，它们所在的分片也偏大（实测约为均值的 1.4 倍）。
+      bytes = sh.length * (totalBytes / (meta.n / perShard)) * 1.42;
+    }
     sum += bytes;
     rows.push({ q, n: out.results.length, sh: sh.length, kb: bytes / 1024 });
   }
