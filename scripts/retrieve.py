@@ -25,7 +25,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 from corpus_path import resolve_corpus  # noqa: E402
 CORPUS = resolve_corpus()
 sys.path.insert(0, HERE)
-from scenes import SCENES, STEMS, EXTRA_STEMS, WEAK_STEMS  # noqa: E402
+from scenes import SCENES, STEMS, EXTRA_STEMS, WEAK_STEMS, CANDIDATE_DF_MAX  # noqa: E402
 import deduce as _deduce  # noqa: E402  (deduce 不反向依赖 retrieve，无循环)
 
 # 「这是抉择现场」的强证据词：出现这些，说明该段确实在记录一次决策，
@@ -373,18 +373,33 @@ def load_index():
 
 
 def candidate_indices(scene, index):
-    """该场景古典词命中的候选事件下标（并集）
+    """该场景古典词命中的候选事件下标（升序并集）
 
-    返回**升序列表**而非 set —— 这是一处真实缺陷的修复：
-    原先返回 set，遍历顺序取决于哈希桶内部布局，虽对 int 而言稳定，
-    但属不可解释的实现细节。它决定了同分案例的先后，也就是说
-    「同一个问题两次跑出不同案例」的风险藏在这里。
-    改为升序（即语料顺序：通鉴卷序 → 史记 → 左传）后，
-    同分排序有明确语义，且与浏览器端移植实现天然一致。
+    两个设计决定，都有实测依据：
+
+    1) 返回**升序列表**而非 set —— 原先是真实缺陷的修复：set 的遍历顺序
+       取决于哈希桶内部布局，虽对 int 而言稳定，但属不可解释的实现细节。
+       它决定同分案例的先后，即「同一个问题两次跑出不同案例」的风险藏在这里。
+       改为升序（语料顺序：通鉴卷序 → 史记 → 左传）后语义明确，
+       且与浏览器端移植实现天然一致。
+
+    2) **泛词降级**：df/N ≥ CANDIDATE_DF_MAX 的古典词不参与预筛，只参与打分。
+       单字泛词（得/度/及/时/家/门/攻/战…）在史书里遍地都是，一个词能捞进
+       全库 1/5 以上事件，使候选集形同虚设（risk-return 曾召回 81.5%）。
+       降级只改「谁能进候选」，**打分公式与词表完全不动**，故 CLI 与
+       浏览器端（build_web_index.py 直接调用本函数）行为一致。
+
+       实测（scripts/simulate_demotion.py，51 条评测问法逐条对照基线）：
+       阈值 15%/20%/25% 下 top-1 与 top-5 零变化、C4 恒 100%，
+       池规模收缩 24–37%；降到 10% 才开始丢真结果。
+       即：这些事件本来就因 IDF 加权排不进前列，泛词在预筛层是纯无效载荷。
     """
     inv = index["inverted"]
+    cutoff = CANDIDATE_DF_MAX * len(index["events"])
     s = set()
     for w in scene["classical"]:
+        if len(inv.get(w, ())) >= cutoff:
+            continue                      # 泛词：只计分，不入选
         for i in inv.get(w, ()):
             s.add(i)
     return sorted(s)

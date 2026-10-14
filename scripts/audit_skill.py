@@ -154,18 +154,29 @@ print("C5 案例内核命中率（首位案例 ⊆ 期望）: %d/%d = %.1f%%"
       % (n_case, N, 100.0 * n_case / max(1, N)))
 
 print("=" * 64)
-print("D. 候选覆盖度（倒排索引可召回量 —— 占比过高说明该场景几乎不过滤）")
-idx = json.load(open(os.path.join(CORPUS, "index.json"), encoding="utf-8"))
-inv, total = idx["inverted"], len(idx["events"])
-from scenes import SCENES  # noqa: E402
+print("D. 候选覆盖度（**生效**候选池 —— 已扣掉降级的泛词）")
+# 这里必须报 candidate_indices() 的真实输出，而不是自己重算古典词并集：
+# 后者会报出降级前的原始池，让 D 段永远在喊「几乎不过滤」，
+# 而实际生效的池已经收窄（曾因此误报一轮）。
+from retrieve import candidate_indices, load_index  # noqa: E402
+from scenes import SCENES, CANDIDATE_DF_MAX  # noqa: E402
+_idx = load_index()
+inv, total = _idx["inverted"], len(_idx["events"])
 rows = []
 for s in SCENES:
-    cand = set()
+    raw = set()
     for w in s["classical"]:
-        cand.update(inv.get(w, ()))
-    rows.append((len(cand), s["id"], len(s["classical"])))
+        raw.update(inv.get(w, ()))
+    eff = candidate_indices(s, _idx)
+    dropped = [w for w in s["classical"]
+               if len(inv.get(w, ())) >= CANDIDATE_DF_MAX * total]
+    rows.append((len(eff), s["id"], len(raw), dropped))
 rows.sort(reverse=True)
-for cnt, sid, nw in rows:
+print("  阈值 CANDIDATE_DF_MAX=%.2f，df ≥ %d 的词只计分、不入选"
+      % (CANDIDATE_DF_MAX, int(CANDIDATE_DF_MAX * total)))
+for cnt, sid, nraw, dropped in rows:
     flag = "  ← 泛词过多，几乎不过滤" if cnt > total * 0.5 else ""
-    print("  %-20s %5d / %d = %4.1f%%%s" % (sid, cnt, total,
-                                            100.0 * cnt / total, flag))
+    note = ("  降级: " + " ".join(dropped)) if dropped else ""
+    print("  %-20s %5d / %d = %4.1f%%  （原始池 %d，收缩 %.0f%%）%s%s"
+          % (sid, cnt, total, 100.0 * cnt / total, nraw,
+             100 * (1 - cnt / max(1, nraw)), note, flag))
