@@ -50,10 +50,13 @@ python test_skill.py                  # 回归测试（21 项）
 困厄翻身
 
 内核定义与映射词见 `references/scenes.md`；检索与推演的实现细节见 `references/impl.md`。
+配套网站（https://greatbeing.github.io/wengu/）、数据分层与验收链见 `references/known-issues.md` §九。
 
 **已知短板与优化路线**见 `references/known-issues.md`（含实测审计数据）。
-其中最关键的一条：
-- 5 个内核因泛词污染几乎不过滤候选（risk-return 召回 81.7%），精确率全靠打分公式兜底
+已修的一条（2026-10-14）：
+- 5 个内核曾因泛词污染几乎不过滤候选（risk-return 召回 81.5%）——
+  现 `df/N ≥ 20%` 的古典词只计分、不入选，池规模收缩 32%，
+  且实测 top-1/top-5 逐条不变（是结构性修复，非质量提升，详见该文件 §三）
 
 **「规律启发」的两段是不同性质的东西，引用时不可混同**：
 - ① 语料统计 —— 由 `derive_patterns.py` 从语料自动导出（`corpus/patterns.json`），

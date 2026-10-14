@@ -65,14 +65,50 @@
 
 ## 三、已知短板（仍未修）
 
-### P1　5 个内核候选泛化（IDF 缓解但未根治）
+### ~~P1　5 个内核候选泛化~~ → **已修（2026-10-14）**
+
+**问题**：`classical` 词表同时服务「候选预筛」与「打分」两层，
+单字泛词在预筛层形同虚设：
+
 ```
-risk-return      81.1%      timing          79.1%
-faith-or-interest 63.7%     family-wealth   63.4%
-war-or-peace      59.1%     （对照：choose-side 9.2%）
+risk-return      81.5%      timing           81.6%
+faith-or-interest 65.2%     family-wealth    64.2%
+war-or-peace      60.4%     （对照：choose-side 13.0%）
 ```
-IDF 让打分不再被泛词主导，但**候选集本身仍未收窄**。
-根治需把泛词从 classical 表降级为「仅辅证词」。
+
+**修法**：df/N ≥ 20% 的古典词**只计分、不入选**（`CANDIDATE_DF_MAX`）。
+词表与打分公式完全不动，只改「谁能进候选」。见 `references/scenes.md`。
+
+**实测（`scripts/simulate_demotion.py`，51 条评测问法逐条对照基线）**：
+
+| 阈值 | 池规模收缩 | top-1 变化 | top-5 变化 | C4 |
+|---|---|---|---|---|
+| 10% | 53% | 0 | **7** ← 开始丢真结果 | 100% |
+| **20%** | **32%** | **0** | **0** | **100%** |
+| 25% | 24% | 0 | 0 | 100% |
+
+**生效后召回率**：
+
+```
+risk-return 49.2%   faith-or-interest 48.7%   war-or-peace 46.0%
+timing 38.9%        moral-trial 35.0%         endure 32.6%
+family-wealth 28.4% employ-person 25.7%       …其余 ≤20.1%
+```
+
+**一个必须说清的事实：本次改动对结果的影响是零。**
+15%/20%/25% 三档下 top-1、top-5 逐条不变；另以同一进程对比
+`retrieve(q, top=3, min_score=3.0)` 的输出，**51/51 完全一致，含顺序**。
+即那些事件本来就因 IDF 加权排不进前列 —— 泛词在预筛层是**纯无效载荷**。
+
+所以这是**结构性修复**（预筛层终于真的在筛 + 消除未来打分变动时噪声浮出的风险），
+**不是质量提升**。不要把它说成「精确率提高了」。
+
+**副作用（正面的）**：`meta.json.gz` 324.1 → 290.6 KB（首屏少下 33 KB）。
+
+**附带发现**：`audit_skill.py` 的 D 段原先是自己重算古典词并集，
+报的是**降级前的原始池**，会永远在喊「几乎不过滤」——已改为报
+`candidate_indices()` 的真实输出。同类的「量测脚本没跟上被测对象」问题
+本轮出现两次（另一次是 `analyze_candidates.py` 报原始池）。
 
 ### P1　测试集仍非独立
 51 条问法与标注均由我撰写 → 98.0% 是**上界**，不是泛化性能。
@@ -199,3 +235,76 @@ heredoc 吃掉一层反斜杠，导致 `"\n".join` 被写成真换行、`"""` �
   不必因此砍掉功能（白话译文得以保留）。真正无解的只有「上游未声明许可」那一份。
 - **`rm -rf` 会触发审批拦截**（本次被挡一次）。清理 `__pycache__` 用 Python `shutil` 即可，
   不必用被禁命令去撞审批。
+
+---
+
+## 九、配套网站（2026-09-30）
+
+站点 `https://greatbeing.github.io/wengu/`（GitHub Pages，源 `main` / `/docs`）。
+`docs/engine.js` 是 `scripts/retrieve.py` 的逐句移植，由 `web/verify_engine.js` 对拍。
+
+### 数据分层（这决定了要下多少数据）
+
+| 文件 | 大小 | 作用 |
+|---|---|---|
+| `meta.json.gz` | 324 KB | **打分所需的全部数据**。每事件的命中词已预计算成下标列表（古典/证据/后果三组），**不含正文** |
+| `scenes.json` | 18 KB | 13 个内核定义与核心问题 |
+| `shards/shard-NNN.json.gz` | 每片 16 条、26.8 KB | 正文＋白话，**只服务前 5 条结果的展示**，按需拉取 |
+
+要点：**打分不需要分片**，分片只在渲染结果时拉。所以分片粒度 ≈ 一次检索的下载量。
+
+### 分片粒度是个真旋钮（本轮修正，降 85%）
+
+原 `--shards 64`（每片 105 条）：5 条结果几乎必然落在 5 个不同分片，
+每片 170 KB 却只取其中 1 条 → **一次检索约 1215 KB**（@46KB/s 约 26s）。
+
+改 `--shards 420`（每片 16 条）→ **一次检索约 166 KB（约 3.6s）**，省 86%。
+
+⚠ **别用「候选分片数 × 单片均值」估算**，会低估约 1.4 倍：分片尺寸方差很大，
+且高分结果正文偏长、其所在的分片也偏大。可信口径有两种，应互相印证：
+- `node web/cost_report.js` —— 当前粒度下按**真实文件尺寸**求和，精确
+- `audit_site_live.py` 的「按需分片KB」—— 按**实际响应 content-length**统计
+
+两者对同一问法应吻合（实测 191 KB vs 191 KB）。
+分片总量仅 10.6 MB → 11.0 MB（gzip 分块惩罚 +3%），`meta`/`scenes` 不变，
+打分结果不变（51/51 问句、255 条案例四字段零差异）。
+
+前端无需改动：`shardOf(i) = floor(i / manifest.perShard)` 读的是 manifest。
+量测工具：`node web/cost_report.js`（可对任意粒度做假设推演）。
+
+### 工程坑（会重复踩）
+
+- **跑 Playwright 脚本必须用对解释器**：`python` 指向 Hermes 工具链的 3.14.7，**没有**
+  playwright。应显式用 `$LOCALAPPDATA/hermes/hermes-agent/venv/Scripts/python.exe`。
+- **`github.com:443` 可能被阻断，而 `api.github.com` 与 `*.github.io` 仍通**。
+  此时 `git push` 全部失败，但可用 `web/push_via_api.py` 走 Git Data API
+  （blob → tree → commit → 更新 ref）推送。已知限制：GitHub 把时区归一到 UTC，
+  **远端 commit sha 必然与本地不同**，会造成本地/远端 ref 分叉（内容一致）；
+  github.com 恢复后 `git fetch && git reset --hard origin/main` 一次性对齐。
+- **`push_via_api.py` 必须从 `git cat-file blob <ref>:<path>` 取内容，不能读工作区文件**：
+  本仓库 `core.autocrlf=true`，提交时会 CRLF→LF。读工作区原始字节会把 CRLF 写进仓库，
+  克隆后出现幽灵改动。（已踩过：`.gitignore`、`web/verify_live.py`。仓库内 CRLF 是
+  比 sha 不同更麻烦的问题。）
+- **实测端到端带宽约 46 KB/s**（本机 → GitHub Pages）。这决定「减小初始载荷」
+  比「减少请求数」更值钱：`meta.json.gz` 324 KB 冷启动约 9 秒，且**不可再压**——
+  它是打分的下限，承载着 6,707 条事件的特征。
+- **加载必须给反馈**：慢链路上无进度/无超时/无重试 = 用户看到卡死。
+  已加 60s 超时 + 2 次自动重试 + `#demoMeta` 逐阶段文案。
+
+### 验收链（本地通过 ≠ 线上通过）
+
+```bash
+node   web/verify_engine.js     # 引擎 vs Python：51/51 问句、255 条案例四字段零差异
+<venv> web/verify_site.py       # 本地站点：实时对拍 + DOM 审计（溢出/对比度/控制台）
+<venv> web/audit_site_live.py   # 线上功能审计：逐项走真实用户路径并记账
+node   web/cost_report.js       # 一次检索的下载成本
+```
+
+**可测项一律走 DOM 审计，不靠视觉模型转述。** 视觉模型本轮报过页面上根本不存在的
+数字（「相关度 88.23」），并多次超时——不可作为验收依据。
+
+### 无障碍
+
+交互控件边界须达 WCAG 1.4.11 的 **3:1**。`--line`（#cbcbc4）对纸底仅 1.40:1，
+只够做分隔线；输入框 / chip / 主题按钮改用专档 `--line-input`（浅 3.41:1、深 3.35:1）。
+判据是**外侧邻色**——对填充按钮比「边框 vs 自身底色」毫无意义（恒为 1.00）。
